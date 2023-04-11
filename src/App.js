@@ -4,7 +4,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Blog</h1>
+      <div className='black-nav'>
+        <div>Developer Blog</div>
+      </div>
       <div className='blog-container'>
         <h2>제목</h2>
         <div>
