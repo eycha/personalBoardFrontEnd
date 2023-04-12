@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import { Route, Routes, Outlet } from "react-router-dom";
+import MainPage from './pages/MainPage';
 
 function App() {
   return (
-    <div className="App">
-      <div className='black-nav'>
-        <div>Developer Blog</div>
-      </div>
-      <div className='blog-container'>
-        <h2>제목</h2>
-        <div>
-          내용
-        </div>
-      </div>
-      <div className='form-wrapper'>
-        <input className="title-input" type="text" placeholder='제목'/>
-        <textarea className='text-area' placeholder='내용'></textarea>
-      </div>
-      <button className='submit-button'>입력</button>        
+    <div className='app'>
+      <Routes>
+        <Route path="/" element={<MainPage/>}>
+
+        </Route>
+      </Routes>
     </div>
   );
 }
