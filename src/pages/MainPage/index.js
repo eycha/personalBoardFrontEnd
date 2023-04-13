@@ -20,8 +20,7 @@ const MainPage = () => {
     <button onClick={()=>handleClick()}>글쓰기</button>
 
     
-    {modalOpen && (
-        <WriteModal setModalOpen={setModalOpen} />
+    {modalOpen && (<WriteModal setModalOpen={setModalOpen} />
       )}    
   </div>
   );

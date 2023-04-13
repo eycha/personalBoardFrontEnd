@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
+
 const WriteModal = ({setModalOpen}) => {
+
+  const [writeTitle,setWriteTitle] = useState("");
+  const [writeContent,setContent] = useState("");
+
   return (
     <>
       <WriteModalTitleStyle>
