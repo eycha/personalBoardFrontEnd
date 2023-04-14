@@ -1,9 +1,16 @@
 import React, {useState} from "react";
 import WriteModal from "../../components/WriteModal"
+import axios from "../../api/axios";
 
 const MainPage = () => {
 
-  const [posts, setPosts] = useState('리스트 제목');
+  
+  // const [posts,setPosts] = useState({
+  //   id:"",
+  //   title:"",
+  //   content:"",
+
+  // });
   const [modalOpen, setModalOpen] = useState(false)
   
   const handleClick = () => {
@@ -13,7 +20,7 @@ const MainPage = () => {
   return (
   <div className="App">
     <div className="list">
-      <h3>{posts}</h3>
+      <h3>제목</h3>
       <p>리스트 내용</p>
       <hr/>
     </div>
@@ -22,7 +29,7 @@ const MainPage = () => {
     
     {modalOpen && (<WriteModal setModalOpen={setModalOpen} />
       )}    
-  </div>
+  </div>  
   );
 };
 

@@ -4,8 +4,13 @@ import styled from "styled-components";
 
 const WriteModal = ({setModalOpen}) => {
 
-  const [writeTitle,setWriteTitle] = useState("");
-  const [writeContent,setContent] = useState("");
+  const [writeTitle, setWriteTitle] = "";
+
+  
+
+  const handleWrite = () => {
+
+  }
 
   return (
     <>
@@ -15,7 +20,9 @@ const WriteModal = ({setModalOpen}) => {
         </span>
         <div className='title-container'>
           <h2>제목</h2>
-          <input className="title-input" type="text" placeholder='제목'/>
+          <input className="title-input" type="text" placeholder='제목'
+          onChange={(setWriteTitle)=> console.log(setWriteTitle) }></input>
+        
         </div>
       </WriteModalTitleStyle>
       <WriteModaContentlStyle>

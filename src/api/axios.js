@@ -5,4 +5,10 @@ const instance = axios.create({
 
 });
 
-export default instance;
+export default {
+    postArticle: function(title, content) {
+        return axios.post(
+            instance.baseURL + "boards"
+        )
+    }
+};
