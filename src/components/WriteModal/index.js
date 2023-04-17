@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { json } from "react-router-dom";
 import styled from "styled-components";
+import requests from "../../api/requests";
+import instance from "../../api/axios";
 
 
 const WriteModal = ({setModalOpen}) => {
@@ -20,29 +22,20 @@ const WriteModal = ({setModalOpen}) => {
   }
 
   const submitWrite = (e) => {
-    fetch("http://localhost:8090/api/boards", {
-      method: "POST",
-      headers: {
-        "Content-Type":"application/json; charset=utf-8"
-      },
-      body:JSON.stringify(writePost)
-    }).then(res => res.json()).then(res=>{
-      console.log(res);
+    instance.post(requests.fetchWrite, writePost).then(res=>{
+      console.log(res.data);
     });
   }
 
   return (
     <>
-     
       <WriteModalTitleStyle>
         <span onClick={() => setModalOpen(false)} className="modal-close">
           X
         </span>
         <div className='title-container'>
           <h2>제목</h2>
-          <input type="text" placeholder='제목' name="title"
-          onChange={handleWrite}></input>
-        
+          <input type="text" placeholder='제목' name="title" onChange={handleWrite}></input>
         </div>
       </WriteModalTitleStyle>
       <WriteModaContentlStyle>
