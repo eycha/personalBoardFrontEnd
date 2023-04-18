@@ -1,36 +1,32 @@
-import React, {useState} from "react";
+import React, {useCallback, useState, useEffect} from "react";
 import WriteModal from "../../components/WriteModal"
-import axios from "../../api/axios";
+import requests from "../../api/requests";
+import instance from "../../api/axios";
 
 const MainPage = () => {
 
-  
-  const [post,setPost] = useState({
-    id:"",
-    title:"",
-    content:"",
-
-  });
-
-  const [posts, setPosts] = useState([
-    {id:1, title:'제목1',content:'내용1'},
-    {id:2, title:'제목2',content:'내용2'},
-    {id:3, title:'제목3',content:'내용3'},
-
-
-
-  ])
+  const [posts,setPosts] = useState({});
   const [modalOpen, setModalOpen] = useState(false)
   
   const handleClick = () => {
     setModalOpen(true);
   } 
 
+  const fetchPostingList = useCallback(async () => {
+    const response = await instance.get(requests.fetchList);
+    console.log(">>>>response :", response.data);
+    setPosts(response.data);
+  }, [requests.fetchList])
+
+  useEffect(() => {
+    fetchPostingList();
+  }, [fetchPostingList]);
+
   return (
   <div className="App">
     <div className="list">
-      <h3>{post.title}</h3>
-      <p>리스트 내용</p>
+      <h3>{posts.map((post)=>(fetchPostingList))}</h3>
+      <p></p>
       <hr/>
     </div>
     <button onClick={()=>handleClick()}>글쓰기</button>

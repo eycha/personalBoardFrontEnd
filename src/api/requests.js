@@ -1,4 +1,5 @@
 const requests = {
-  fetchWrite: "/boards",
+  fetchList: "/boards",
+  fetchWrite: "/boards/post",
 };
 export default requests;
