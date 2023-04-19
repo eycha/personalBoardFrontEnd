@@ -2,10 +2,12 @@ import React, {useCallback, useState, useEffect} from "react";
 import WriteModal from "../../components/WriteModal"
 import requests from "../../api/requests";
 import instance from "../../api/axios";
+import PostingList from "../../components/PostingList";
+
 
 const MainPage = () => {
 
-  const [posts,setPosts] = useState({});
+  const [posts,setPosts] = useState([]);
   const [modalOpen, setModalOpen] = useState(false)
   
   const handleClick = () => {
@@ -25,10 +27,12 @@ const MainPage = () => {
   return (
   <div className="App">
     <div className="list">
-      <h3>{posts.map((post)=>(fetchPostingList))}</h3>
-      <p></p>
-      <hr/>
+      {posts.map((post)=>(
+        <PostingList key={post.id} post={post}/>
+      ))}
+      
     </div>
+    <hr/>
     <button onClick={()=>handleClick()}>글쓰기</button>
 
     
