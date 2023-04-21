@@ -17,12 +17,13 @@ const MainPage = () => {
   const fetchPostingList = useCallback(async () => {
     const response = await instance.get(requests.fetchList);
     console.log(">>>>response :", response.data);
+
     setPosts(response.data);
   }, [requests.fetchList])
 
   useEffect(() => {
     fetchPostingList();
-  }, [fetchPostingList]);
+  }, [posts]);
 
   return (
   <div className="App">
@@ -30,7 +31,6 @@ const MainPage = () => {
       {posts.map((post)=>(
         <PostingList key={post.id} post={post}/>
       ))}
-      
     </div>
     <hr/>
     <button onClick={()=>handleClick()}>글쓰기</button>

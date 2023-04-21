@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import styled from "styled-components";
 import requests from "../../api/requests";
 import instance from "../../api/axios";
@@ -25,6 +25,7 @@ const WriteModal = ({setModalOpen}) => {
       console.log(res.data);
     });
   }
+
 
   return (
     <>
